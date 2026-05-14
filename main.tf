@@ -77,6 +77,7 @@ module "blog_alb" {
   tags = {
     Environment = "Dev"
   }
+ }
 }
 
   resource "aws_lb_target_group" "blog" {
@@ -84,7 +85,7 @@ module "blog_alb" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = module.blog_vpc.vpc_id
-}
+  }
 
 resource "aws_lb_target_group_attachment" "blog" {
   target_group_arn = aws_lb_target_group.blog.arn
