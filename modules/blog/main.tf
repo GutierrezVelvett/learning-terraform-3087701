@@ -49,7 +49,7 @@ module "blog_alb" {
   source  = "terraform-aws-modules/alb/aws"
   version = "~> 6.0"
 
-  name = "${var.environment.name}-blog-alb"
+  name = "${var.environment.name}-blog_alb"
 
   load_balancer_type = "application"
 
@@ -103,7 +103,7 @@ instance_type          = var.instance_type
 image_id               = data.aws_ami.app_ami.id
 
 traffic_source_attachments = {
-  ${var.environment.name}-blog-alb ={
+  ${var.environment.name}-blog_alb ={
     traffic_source_identifier = aws_lb_target_group.blog.arn
   }
 }
